@@ -1,0 +1,31 @@
+1. Write a function to remove duplicate values from an array.  (Assume all values of the array are simple, lowercase strings)
+
+//Written in JavaScript
+  removeDuplicates = (array) =>  {
+
+    for(let i=0; i<array.length+1; i++) {
+
+      for(let j=i+1; j<array.length; j++) {
+
+        if(array[i] === array[j]) {
+          array.splice(j,1);
+        }
+
+      }
+    }
+
+    return array;
+  }
+
+2. Why use server side filtering instead of client side filtering?
+    Server-side filtering is useful because database systems are optimized for this type of functionality. This is favored because you will have a faster speed of execution. With the filtered data, this means less data which translates to faster transfers. Additionally, filtering on the server-side will be more secure as well.
+
+3. What is jQuery and why would you choose to use it, or choose not to use it?
+    jQuery is a JavaScript library. Its purpose is to accomplish the same goal but with less code than JavaScript. jQuery is useful but there has been a trend in people using jQuery less. As projects get larger in scale, jQuery becomes unwieldy when trying to manipulate the DOM. There are many other frameworks like React and Vuejs that utilize components and virtual-DOM to address scalability. jQuery can still be useful when working on smaller projects or projects with the server-side MVC structure. It is also helpful because jQuery is cross browser compatible.
+
+4. What's wrong with this snippet of code?
+	$name = $_POST['name'];
+	$query = 'insert into friends (name) values ("' . $name . '")';
+	mysqli_query($connection, $query);
+
+  From what I can determine, the problem with this particular snippet of code is that $connection is not defined.If you were to run the code, then there would be no connection and the name would not be inserted into the friends table in the name column. The connection needs to be defined to access the table.
